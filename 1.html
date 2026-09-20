@@ -1,0 +1,1016 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Mobile Responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Raj Narayan Singh | Resume</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #050816;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           ANIMATED BACKGROUND
+        ========================== */
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: #6c63ff;
+            filter: blur(180px);
+            opacity: 0.25;
+            top: -150px;
+            left: -150px;
+            z-index: -1;
+            animation: moveGlow 8s infinite alternate;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 450px;
+            height: 450px;
+            background: #00d9ff;
+            filter: blur(180px);
+            opacity: 0.18;
+            bottom: -150px;
+            right: -150px;
+            z-index: -1;
+            animation: moveGlow2 10s infinite alternate;
+        }
+
+        @keyframes moveGlow {
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(250px, 200px);
+            }
+        }
+
+        @keyframes moveGlow2 {
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(-200px, -150px);
+            }
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================== */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 70px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 0 8%;
+
+            background: rgba(5, 8, 22, 0.75);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #00d9ff;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00d9ff;
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
+        #home {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 100px 20px;
+        }
+
+        .hero {
+            max-width: 900px;
+
+            animation: fadeUp 1.2s ease;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero small {
+            color: #00d9ff;
+            letter-spacing: 4px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 90px);
+            margin: 20px 0;
+        }
+
+        .hero h1 span {
+            color: #00d9ff;
+        }
+
+        .hero p {
+            color: #aaa;
+            font-size: 20px;
+            line-height: 1.7;
+        }
+
+        .buttons {
+            margin-top: 35px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            margin: 8px;
+
+            border-radius: 30px;
+
+            text-decoration: none;
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .primary {
+            background: #00d9ff;
+            color: #000;
+        }
+
+        .secondary {
+            border: 1px solid #00d9ff;
+            color: #00d9ff;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,217,255,0.25);
+        }
+
+        /* =========================
+           SECTIONS
+        ========================== */
+
+        section:not(#home) {
+            padding: 100px 8%;
+        }
+
+        .section-title {
+            margin-bottom: 50px;
+        }
+
+        .section-title small {
+            color: #00d9ff;
+            letter-spacing: 3px;
+        }
+
+        .section-title h2 {
+            font-size: 45px;
+            margin-top: 10px;
+        }
+
+        .section-title h2 span {
+            color: #00d9ff;
+        }
+
+        /* =========================
+           GLASS CARD
+        ========================== */
+
+        .card {
+            background: rgba(255,255,255,0.05);
+
+            border: 1px solid rgba(255,255,255,0.1);
+
+            border-radius: 20px;
+
+            padding: 30px;
+
+            backdrop-filter: blur(15px);
+
+            transition: 0.4s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+
+            border-color: #00d9ff;
+
+            box-shadow:
+                0 15px 40px rgba(0,217,255,0.1);
+        }
+
+        /* =========================
+           ABOUT
+        ========================== */
+
+        .about {
+            max-width: 900px;
+        }
+
+        .about p {
+            color: #bbb;
+            font-size: 18px;
+            line-height: 1.9;
+        }
+
+        /* =========================
+           SKILLS
+        ========================== */
+
+        .skills {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 20px;
+        }
+
+        .skill {
+            padding: 25px;
+
+            border-radius: 15px;
+
+            background: rgba(255,255,255,0.05);
+
+            border: 1px solid rgba(255,255,255,0.1);
+
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: scale(1.04);
+            border-color: #00d9ff;
+        }
+
+        .skill h3 {
+            margin-bottom: 10px;
+        }
+
+        .skill p {
+            color: #999;
+        }
+
+        /* =========================
+           PROJECTS
+        ========================== */
+
+        .projects {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(280px, 1fr));
+
+            gap: 25px;
+        }
+
+        .project h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .project p {
+            color: #aaa;
+            line-height: 1.7;
+        }
+
+        .tags {
+            margin: 20px 0;
+        }
+
+        .tag {
+            display: inline-block;
+
+            padding: 6px 12px;
+
+            margin: 4px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+            border: 1px solid #555;
+
+            color: #ccc;
+        }
+
+        .project a {
+            color: #00d9ff;
+            text-decoration: none;
+        }
+
+        /* =========================
+           EDUCATION
+        ========================== */
+
+        .timeline {
+            max-width: 850px;
+        }
+
+        .timeline-item {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .timeline-item h3 {
+            color: #00d9ff;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item p {
+            color: #aaa;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           CONTACT FORM
+        ========================== */
+
+        .contact-form {
+            max-width: 800px;
+        }
+
+        .form-row {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 15px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+
+            padding: 15px;
+
+            margin-bottom: 15px;
+
+            background: rgba(0,0,0,0.3);
+
+            border: 1px solid #333;
+
+            border-radius: 10px;
+
+            color: white;
+
+            font-size: 16px;
+
+            outline: none;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #00d9ff;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            border: none;
+            cursor: pointer;
+        }
+
+        #status {
+            margin-top: 15px;
+            color: #00d9ff;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            text-align: center;
+
+            padding: 30px;
+
+            border-top: 1px solid rgba(255,255,255,0.1);
+
+            color: #777;
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media(max-width: 700px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 50px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 35px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVIGATION
+========================== -->
+
+<nav>
+
+    <div class="logo">
+        Raj<span>.</span>
+    </div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================== -->
+
+<section id="home">
+
+    <div class="hero">
+
+        <small>PORTFOLIO / RESUME</small>
+
+        <h1>
+            Raj Narayan
+            <span>Singh</span>
+        </h1>
+
+        <p>
+            Automation & Robotics | AI/ML | Embedded Systems |
+            IoT | Software Development
+        </p>
+
+        <div class="buttons">
+
+            <a href="#projects"
+               class="btn primary">
+                View Projects
+            </a>
+
+            <a href="#contact"
+               class="btn secondary">
+                Contact Me
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================== -->
+
+<section id="about">
+
+    <div class="section-title">
+
+        <small>01 — ABOUT ME</small>
+
+        <h2>
+            Turning ideas into
+            <span>working projects.</span>
+        </h2>
+
+    </div>
+
+    <div class="about card">
+
+        <p>
+            I am a Diploma graduate in Automation and Robotics
+            with an interest in Artificial Intelligence, Machine
+            Learning, Embedded Systems, IoT, Data Automation and
+            Software Development.
+        </p>
+
+        <br>
+
+        <p>
+            I enjoy building practical projects that combine
+            software intelligence with real-world hardware.
+            My interests include ML web applications, NLP,
+            ESP32 robotics, automation and emerging Generative AI
+            technologies.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SKILLS
+========================== -->
+
+<section id="skills">
+
+    <div class="section-title">
+
+        <small>02 — SKILLS</small>
+
+        <h2>
+            My <span>Technical Skills</span>
+        </h2>
+
+    </div>
+
+    <div class="skills">
+
+        <div class="skill">
+            <h3>Python</h3>
+            <p>
+                Programming, automation and backend development
+            </p>
+        </div>
+
+        <div class="skill">
+            <h3>Machine Learning</h3>
+            <p>
+                Regression, classification, NLP and ML projects
+            </p>
+        </div>
+
+        <div class="skill">
+            <h3>Web Development</h3>
+            <p>
+                HTML, CSS, Flask and FastAPI
+            </p>
+        </div>
+
+        <div class="skill">
+            <h3>AI / GenAI</h3>
+            <p>
+                LLMs, NLP, LangChain and Agentic AI
+            </p>
+        </div>
+
+        <div class="skill">
+            <h3>Embedded Systems</h3>
+            <p>
+                ESP32, sensors, servos and microcontrollers
+            </p>
+        </div>
+
+        <div class="skill">
+            <h3>Data</h3>
+            <p>
+                SQLite, data automation and analytics
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PROJECTS
+========================== -->
+
+<section id="projects">
+
+    <div class="section-title">
+
+        <small>03 — PROJECTS</small>
+
+        <h2>
+            Featured <span>Projects</span>
+        </h2>
+
+    </div>
+
+    <div class="projects">
+
+        <!-- PROJECT 1 -->
+
+        <div class="project card">
+
+            <h3>
+                Database-Based House Price Prediction
+            </h3>
+
+            <p>
+                A machine learning web application that combines
+                database lookup with Random Forest prediction.
+                Similar stored records can be used before generating
+                a new model prediction.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">FastAPI</span>
+                <span class="tag">SQLite</span>
+                <span class="tag">Machine Learning</span>
+            </div>
+
+            <a
+                href="https://dbhpp-2.onrender.com/"
+                target="_blank">
+                View Live Project →
+            </a>
+
+        </div>
+
+
+        <!-- PROJECT 2 -->
+
+        <div class="project card">
+
+            <h3>
+                Grammar AI
+            </h3>
+
+            <p>
+                An AI-based grammar correction application using
+                a T5 grammar correction model with a Flask interface
+                and dictionary API integration.
+            </p>
+
+            <div class="tags">
+
+                <span class="tag">Python</span>
+                <span class="tag">Flask</span>
+                <span class="tag">NLP</span>
+                <span class="tag">T5</span>
+                <span class="tag">Docker</span>
+
+            </div>
+
+            <a
+                href="https://github.com/rajnarayansingh26/grammar_AI"
+                target="_blank">
+                View GitHub →
+            </a>
+
+        </div>
+
+
+        <!-- PROJECT 3 -->
+
+        <div class="project card">
+
+            <h3>
+                Ash — ESP32 Smart Robot
+            </h3>
+
+            <p>
+                An ESP32-based robotics project combining servo
+                movement, OLED display, ultrasonic obstacle
+                detection, microphone/audio hardware and future
+                voice/web control.
+            </p>
+
+            <div class="tags">
+
+                <span class="tag">ESP32</span>
+                <span class="tag">IoT</span>
+                <span class="tag">Robotics</span>
+                <span class="tag">OLED</span>
+                <span class="tag">Sensors</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     EDUCATION
+========================== -->
+
+<section id="education">
+
+    <div class="section-title">
+
+        <small>04 — EDUCATION</small>
+
+        <h2>
+            My <span>Education</span>
+        </h2>
+
+    </div>
+
+    <div class="timeline">
+
+        <div class="timeline-item card">
+
+            <h3>
+                Diploma in Automation and Robotics
+            </h3>
+
+            <p>
+                Central Institute of Tool Design (CITD)
+                <br>
+                Balanagar, Hyderabad
+            </p>
+
+        </div>
+
+
+        <div class="timeline-item card">
+
+            <h3>
+                Areas of Interest
+            </h3>
+
+            <p>
+                Artificial Intelligence • Machine Learning •
+                Robotics • IoT • Embedded Systems •
+                Data Automation • Software Development
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================== -->
+
+<section id="contact">
+
+    <div class="section-title">
+
+        <small>05 — CONTACT</small>
+
+        <h2>
+            Let's <span>Connect.</span>
+        </h2>
+
+    </div>
+
+
+    <form
+        id="contactForm"
+        class="contact-form card">
+
+        <div class="form-row">
+
+            <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                required>
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                required>
+
+        </div>
+
+
+        <input
+            type="text"
+            name="subject"
+            placeholder="Subject"
+            required>
+
+
+        <textarea
+            name="message"
+            rows="6"
+            placeholder="Your Message"
+            required>
+        </textarea>
+
+
+        <button
+            type="submit"
+            class="btn primary">
+
+            Send Message →
+
+        </button>
+
+
+        <p id="status"></p>
+
+    </form>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer>
+
+    <p>
+        © <span id="year"></span>
+        Raj Narayan Singh
+    </p>
+
+    <p>
+        Built with HTML, CSS & Web Technologies
+    </p>
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+     CONTACT POST
+========================== -->
+
+<script>
+
+    /*
+        CONTACT FORM
+
+        The browser sends the form data using
+        an HTTP POST request.
+
+        IMPORTANT:
+        Change "/api/contact" to your real
+        backend API URL.
+    */
+
+    const form =
+        document.getElementById("contactForm");
+
+    const status =
+        document.getElementById("status");
+
+
+    form.addEventListener("submit", async function(event) {
+
+        event.preventDefault();
+
+
+        status.textContent =
+            "Sending message...";
+
+
+        const formData =
+            new FormData(form);
+
+
+        const data = {
+
+            name: formData.get("name"),
+
+            email: formData.get("email"),
+
+            subject: formData.get("subject"),
+
+            message: formData.get("message")
+
+        };
+
+
+        try {
+
+            const response = await fetch(
+                "/api/contact",
+                {
+
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body: JSON.stringify(data)
+
+                }
+            );
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Server error"
+                );
+
+            }
+
+
+            status.textContent =
+                "Message sent successfully!";
+
+
+            form.reset();
+
+
+        } catch (error) {
+
+            status.textContent =
+                "Backend is not connected yet.";
+
+        }
+
+    });
+
+
+    /*
+        Automatically update copyright year
+    */
+
+    document.getElementById("year")
+        .textContent =
+        new Date().getFullYear();
+
+</script>
+
+</body>
+</html>
+```
